@@ -4,7 +4,7 @@ import react from '@vitejs/plugin-react';
 // base '/pizza/' makes generated asset URLs resolve correctly once the app is
 // served under yourdomain.com/pizza via the main site's Vercel rewrite.
 export default defineConfig({
-  base: '/pizza/',
+  base: '/pizzashop-front/',
   plugins: [react()],
   server: {
     port: 5173,
