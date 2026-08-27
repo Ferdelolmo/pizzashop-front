@@ -24,19 +24,10 @@ jobs:
           node-version: 20
           cache: npm
       - run: npm ci
-      - name: Debug secret presence
-        env:
-          VITE_FARO_URL: ${{ secrets.VITE_FARO_URL }}
-        run: |
-          if [ -n "$VITE_FARO_URL" ]; then
-            echo "VITE_FARO_URL is SET (length: ${#VITE_FARO_URL} chars)"
-          else
-            echo "VITE_FARO_URL is EMPTY or UNSET"
-          fi
       - name: Build
         env:
           VITE_API_BASE_URL: https://pizza-backend-frutas-felipe.vercel.app/api
-          VITE_FARO_URL: ${{ secrets.VITE_FARO_URL }}
+          VITE_FARO_URL: ${{ vars.VITE_FARO_URL }}
         run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
